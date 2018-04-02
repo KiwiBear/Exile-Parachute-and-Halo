@@ -28,9 +28,9 @@ if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
 				if (call ExAd_fnc_showParachute) then
 				{
 					call ExAd_fnc_pullParachute;
-				}
-			}
-		}
+				};
+			};
+		};
 	}];
 };
 
