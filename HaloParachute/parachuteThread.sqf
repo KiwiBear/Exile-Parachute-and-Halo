@@ -2,16 +2,16 @@
 	Parachute from ExAd.. Modified by [FPS]kuplion
 */
 
-waitUntil{!isNil "ExileClientLoadedIn"};
+waitUntil {!isNil "ExileClientLoadedIn"};
 //uiSleep 0.1;
-waitUntil{ExileClientLoadedIn};
+waitUntil {ExileClientLoadedIn};
 //uiSleep 0.1;
-waitUntil{alive player};
+waitUntil {alive player};
 
 if (ExAd_HALOPARACHUTE_USE_ACTIONS) then
 {
-	ExAd_ACTION_PARACHUTE  = player addaction ["<t color='#E48A36'><img image='\a3\ui_f\data\gui\cfg\CommunicationMenu\supplydrop_ca.paa' /> Open Parachute!</t>", "call ExAd_fnc_pullParachute", [], 6, true, true, "", "call ExAd_fnc_showParachute"];
-	ExAd_ACTION_EJECT  = player addaction ["<t color='#E48A36'><img image='\a3\ui_f\data\gui\cfg\CommunicationMenu\supplydrop_ca.paa' /> Halo Jump!</t>", "call ExAd_fnc_ejectPlayer", [], 6, false, true, "", "call ExAd_fnc_showEject;"];
+	ExAd_ACTION_PARACHUTE  = player addAction ["<t color='#E48A36'><img image='\a3\ui_f\data\gui\cfg\CommunicationMenu\supplydrop_ca.paa' /> Open Parachute!</t>", "call ExAd_fnc_pullParachute", [], 6, true, true, "", "call ExAd_fnc_showParachute"];
+	ExAd_ACTION_EJECT  = player addAction ["<t color='#E48A36'><img image='\a3\ui_f\data\gui\cfg\CommunicationMenu\supplydrop_ca.paa' /> Halo Jump!</t>", "call ExAd_fnc_ejectPlayer", [], 6, false, true, "", "call ExAd_fnc_showEject;"];
 };
 
 if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
