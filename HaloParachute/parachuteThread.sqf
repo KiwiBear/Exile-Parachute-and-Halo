@@ -24,22 +24,26 @@ if (ExAd_HALOPARACHUTE_USE_ACTIONS) then
 // Mash those keys to eject..
 if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
 {
-	ExAd_ACTION_HALOPARACHUTE_USE_KEY_ACTIONS = (findDisplay 46) displayAddEventHandler ["KeyDown",{
-		if (_this select 1 == 47 && _this select 2 && _this select 4) then
+	if ((getPos player) select 2 > ExAd_ACTION_EJECT_HEIGHT) then
+	{
+		ExAd_ACTION_HALOPARACHUTE_USE_KEY_ACTIONS = (findDisplay 46) displayAddEventHandler ["KeyDown",
 		{
-			if ((getPos player) select 2 > ExAd_ACTION_EJECT_HEIGHT && vehicle player != player) then
+			if (_this select 1 == 47 && _this select 2 && _this select 4) then
 			{
-				call ExAd_fnc_ejectPlayer;
-			}
-			else
-			{
-				if (call ExAd_fnc_showParachute) then
+				if (vehicle player != player) then
 				{
-					call ExAd_fnc_pullParachute;
+					call ExAd_fnc_ejectPlayer;
+				}
+				else
+				{
+					if (call ExAd_fnc_showParachute) then
+					{
+						call ExAd_fnc_pullParachute;
+					};
 				};
 			};
-		};
-	}];
+		}];
+	};
 };
 
 // Dead folks probably don't parachute..
