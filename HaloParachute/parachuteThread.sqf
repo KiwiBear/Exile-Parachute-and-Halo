@@ -45,10 +45,10 @@ if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
 if ((ExAd_HALOPARACHUTE_USE_ACTIONS) && (!alive player)) then
 {
 	player removeAction ExAd_ACTION_PARACHUTE;
-	player removeAction ExAd_ACTION_EJECT;
-	
-	if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
-	{
-		(findDisplay 46) displayRemoveEventHandler ["KeyDown", ExAd_ACTION_HALOPARACHUTE_USE_KEY_ACTIONS];
-	};
+	player removeAction ExAd_ACTION_EJECT;		
+};
+
+if ((ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) && (!alive player)) then
+{
+	(findDisplay 46) displayRemoveEventHandler ["KeyDown", ExAd_ACTION_HALOPARACHUTE_USE_KEY_ACTIONS];
 };
