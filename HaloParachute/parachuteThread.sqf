@@ -2,12 +2,12 @@
 	Parachute from ExAd.. Modified by [FPS]kuplion
 */
 
+// No need for a parachute if you're not loaded in!!
 waitUntil {!isNil "ExileClientLoadedIn"};
-//uiSleep 0.1;
 waitUntil {ExileClientLoadedIn};
-//uiSleep 0.1;
 waitUntil {alive player};
 
+// I can haz actions?
 if (ExAd_HALOPARACHUTE_USE_ACTIONS) then
 {
 	if (isNil "ExAd_ACTION_PARACHUTE") then
@@ -21,6 +21,7 @@ if (ExAd_HALOPARACHUTE_USE_ACTIONS) then
 	};
 };
 
+// Mash those keys to eject..
 if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
 {
 	ExAd_ACTION_HALOPARACHUTE_USE_KEY_ACTIONS = (findDisplay 46) displayAddEventHandler ["KeyDown",{
@@ -35,20 +36,23 @@ if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
 				if (call ExAd_fnc_showParachute) then
 				{
 					call ExAd_fnc_pullParachute;
-				}
-			}
-		}
+				};
+			};
+		};
 	}];
 };
 
-//waitUntil {!alive player};
-if ((ExAd_HALOPARACHUTE_USE_ACTIONS) && (!alive player)) then
+// Dead folks probably don't parachute..
+if (!alive player) then
 {
-	player removeAction ExAd_ACTION_PARACHUTE;
-	player removeAction ExAd_ACTION_EJECT;		
-};
+	if (ExAd_HALOPARACHUTE_USE_ACTIONS) then
+	{
+		player removeAction ExAd_ACTION_PARACHUTE;
+		player removeAction ExAd_ACTION_EJECT;
+	};
 
-if ((ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) && (!alive player)) then
-{
-	(findDisplay 46) displayRemoveEventHandler ["KeyDown", ExAd_ACTION_HALOPARACHUTE_USE_KEY_ACTIONS];
+	if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
+	{
+		(findDisplay 46) displayRemoveEventHandler ["KeyDown", ExAd_ACTION_HALOPARACHUTE_USE_KEY_ACTIONS];
+	};
 };
