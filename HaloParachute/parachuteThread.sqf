@@ -43,7 +43,7 @@ if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
 };
 
 // Dead folks probably don't parachute..
-if (!alive player) then
+if !(alive player) then
 {
 	if (ExAd_HALOPARACHUTE_USE_ACTIONS) then
 	{
