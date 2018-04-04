@@ -52,7 +52,9 @@ if !(alive player) then
 	if (ExAd_HALOPARACHUTE_USE_ACTIONS) then
 	{
 		player removeAction ExAd_ACTION_PARACHUTE;
+		ExAd_ACTION_PARACHUTE = nil;
 		player removeAction ExAd_ACTION_EJECT;
+		ExAd_ACTION_EJECT = nil;
 	};
 
 	if (ExAd_HALOPARACHUTE_USE_KEY_ACTIONS) then
